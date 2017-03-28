@@ -77,7 +77,7 @@ end
 ```
 
 我們先來看這個函式怎麼使用：
-```
+```lua
 a=switch {
     [1] = function (x) print(x,10) end,
     [2] = function (x) print(x,20) end,
@@ -92,6 +92,7 @@ a:case(9) --9   0
 除了原來我們傳進去的數值以外，t中還會再加入case函數然後把table回傳給a。
 然後我們呼叫`a:case(2)`時他會去執行t.case(self,x)這個函數。
 self為使用這個方法的變數本身，也就是變數a。而x為我們傳入的索引，這裡為2。
+
 當索引x存在時我們會執行a[x]，不存在時執行a["default"]
 當索引指向的值唯一函數時，程式便會直接執行該函數。
 如此我們利用table實現了switch case功能。
