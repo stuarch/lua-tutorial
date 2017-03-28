@@ -46,6 +46,46 @@ foo bar
 
 Lua中還有內建函數可以處理Table，包括插入、排序等，可以參考[這裡](https://www.tutorialspoint.com/lua/lua_tables.htm)。
 
+## 模組
+在上一章我們提到`example.lua`使用table輸出模組，在本節會簡單介紹。
+```lua
+modules = {
+    a = function(x)
+            print(x)
+            return x
+        end,
+}
+return modules
+```
+上面為簡單的模組，我們可以require這個檔案然後使用他。
+在上面我們利用table來包裝模組，使的我們可以用類似物件導向的方法使用裡面的函式。
+接著我們可以更進階的把物件導向的概念帶進來：
+```lua
+mytable = {
+    foo = "bar",
+    hello = "world",
+}
+module = {
+    new = mytable,
+    method = function(self, x)
+        if self[x] then
+            return self[x]
+        end
+    end,
+}
+return module
+```
+把上面存入example.lua中，然後這樣使用
+```lua
+example = require("example")
+a = example.new
+print(a:method("foo"))
+```
+導入example後example會得到module那張表。
+下一行我們用a去接module中的表new。此時a={foo="bar",hello="world"}
+再來我們執行`a:method("foo")`。
+這裡會呼叫函式method，變數self會接套用此方法的變數a，而x會接到引數"foo"。
+
 ## Table實現switch case
 因為索引值可以為數字和字串，我們可以利用這一點用Table來實現判斷式：
 ```lua
