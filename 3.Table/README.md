@@ -61,12 +61,9 @@ return modules
 在上面我們利用table來包裝模組，使的我們可以用類似物件導向的方法使用裡面的函式。
 接著我們可以更進階的把物件導向的概念帶進來：
 ```lua
-mytable = {
+module = {
     foo = "bar",
     hello = "world",
-}
-module = {
-    new = mytable,
     method = function(self, x)
         if self[x] then
             return self[x]
@@ -78,7 +75,7 @@ return module
 把上面存入example.lua中，然後這樣使用
 ```lua
 example = require("example")
-a = example.new
+a = example
 print(a:method("foo"))
 ```
 導入example後example會得到module那張表。
