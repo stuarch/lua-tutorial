@@ -210,19 +210,17 @@ print(example.anti_tri(5))
 loadstring函數可以將字串轉換為腳本語言並執行。
 ```lua
 code = [[
-    function ()
         local a = {foo = "bar"}
         return a
-    end
 ]]
 
 echo = loadstring(code)
-print(echo.foo)
+print(echo().foo)
 
 b = {"Hello"}
 
-hi = loadstring("function() return unpack(b) end")
-print(hi)
+hi = loadstring("print(unpack(b))")
+hi()
 ```
 
 ### LuaRocks
