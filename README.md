@@ -13,4 +13,4 @@
     * [函數](2.BasicUsage/README.md#函數)
   
 * [3.表(Table)](3.Table/README.md)
-    * [Table實現Switch Case](3.Table/README.md#table實現switch-case)
+    * [Table實現Switch Case](3.Table/README.md#table實現switch-case)
