@@ -70,12 +70,12 @@ module = {
         end
     end,
 }
-return module
+return {new = function() return module end}
 ```
 把上面存入example.lua中，然後這樣使用
 ```lua
 example = require("example")
-a = example
+a = example.new()
 print(a:method("foo"))
 ```
 導入example後example會得到module那張表。
