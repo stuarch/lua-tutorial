@@ -7,4 +7,4 @@ module = {
         end
     end,
 }
-return module
+return {new = function() return module end}
