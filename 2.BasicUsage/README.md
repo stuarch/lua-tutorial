@@ -97,6 +97,14 @@ end
 2
 1
 ```
+for迴圈還可以用來走訪table，方法如下：
+```lua
+t={2,5,7}
+for k,v in ipairs(t) do
+    print(k,v)
+end
+```
+詳細會在後面說明。
 
 ## 判斷
 Lua提供的判斷只有if，常見於其他語言的switch case可以利用table來實現，詳情在table(表)再討論。
@@ -218,9 +226,10 @@ echo = loadstring(code)
 print(echo().foo)
 
 b = {"Hello"}
+source = string.dump("function() return unpack(b) end")
 
-hi = loadstring("print(unpack(b))")
-hi()
+hi = loadstring(source)
+print(hi())
 ```
 
 ### LuaRocks
