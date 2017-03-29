@@ -46,6 +46,32 @@ foo bar
 
 Lua中還有內建函數可以處理Table，包括插入、排序等，可以參考[這裡](https://www.tutorialspoint.com/lua/lua_tables.htm)。
 
+## Metatable
+Lua語言另外為table提供了改變table行為的方法，稱作為meta method。
+不過在幫table套用meta method之前，必須先將table設為metatable。
+```
+表名稱=setmetatable(表內容,表行為)
+```
+以下為示範：
+```lua
+mytable = setmetatble({foo = "bar"},{
+    __index = function(mytable, key)
+        return new
+    end
+})
+
+print(mytable.foo, mytable.new)
+```
+結果為：
+```
+bar     new
+```
+在這個範例中，mytable為一metatable。
+當我們呼叫當中的foo，會返回我們指定的內容bar。
+而當我們呼叫mytable裡面沒有的索引時，則會執行下面的`__index`函式，然後獲得字串"new"。
+metatable提供的meta method眾多，就不在這裡一一介紹了，詳細可以參考[這裡](https://www.tutorialspoint.com/lua/lua_metatables.htm)。
+
+
 ## 模組
 在上一章我們提到`example.lua`使用table輸出模組，在本節會簡單介紹。
 ```lua
