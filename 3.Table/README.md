@@ -69,7 +69,7 @@ bar     new
 在這個範例中，mytable為一metatable。
 當我們呼叫當中的foo，會返回我們指定的內容bar。
 而當我們呼叫mytable裡面沒有的索引時，則會執行下面的`__index`函式，然後獲得字串"new"。
-metatable提供的meta method眾多，就不在這裡一一介紹了，詳細可以參考[這裡](https://www.tutorialspoint.com/lua/lua_metatables.htm)。
+metatable提供的meta method眾多，還包括新增欄位、呼叫表時行為設置等方法，這裡就不一一介紹了，詳細可以參考[這裡](https://www.tutorialspoint.com/lua/lua_metatables.htm)。
 
 
 ## 模組
