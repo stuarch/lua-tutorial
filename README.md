@@ -13,5 +13,6 @@
     * [函數](2.BasicUsage#函數)
   
 * [3.表(Table)](3.Table)
+    * [Metatable](3.Table#metatable)
     * [模組](3.Table#模組)
     * [Table實現Switch Case](3.Table#table實現switch-case)
