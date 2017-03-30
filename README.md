@@ -16,3 +16,7 @@
     * [Metatable](3.Table#metatable)
     * [模組](3.Table#模組)
     * [Table實現Switch Case](3.Table#table實現switch-case)
+
+* [4.C API](4.C_API)
+    * [狀態機](4.C_API#狀態機)
+    * [在C語言中操作Lua狀態機](4.C_API#在c語言中操作lua狀態機)
