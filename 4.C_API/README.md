@@ -50,7 +50,7 @@ Lua和C語言故無法直接對彼此的變數做存取，但可以透過狀態�
 接著我們就可以開始實現上面的範例了：
 ```c
 int main(){
-    lua_State* L=lua_newstate();
+    lua_State* L = lua_newstate();
     luaL_openlibs(L);
     
     int i = 1;
@@ -63,7 +63,7 @@ int main(){
     lua_pushnumber(L ,i);
     lua_pushnumber(L ,j);
     lua_pcall(2, 1, 0);
-    printf("i+j= %d\n", luaL_checkinteger(L, 1));
+    printf("i+j= %d\n", lua_tointeger(L, 1));
     lua_close(L);
     return 1;
 }
