@@ -63,6 +63,7 @@ int main(){
     lua_pushnumber(L ,i);
     lua_pushnumber(L ,j);
     lua_pcall(2, 1, 0);
+    
     printf("i+j= %d\n", lua_tointeger(L, 1));
     lua_close(L);
     return 1;
