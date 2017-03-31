@@ -1,5 +1,5 @@
 CC = gcc
-INCLUDE = /usr/include/lua5.1 -llua5.1
+INCLUDE = `pkg-config --cflags --libs lua51`
 TARGET = example
 
 main: $(TARGET).c
