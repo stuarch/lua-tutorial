@@ -1,5 +1,9 @@
 # 4.C API
 Lua能夠輕易的與C語言並用是其受歡迎重要的原因之一。此章我們會討論如何使用Lua的C語言API。
+先安裝好需要的環境：
+```shell
+$ sudo apt-get install liblua5.1-dev pkg-config
+```
 
 ## 狀態機
 Lua語言的實現為一儲存現在狀態之狀態機(State)。
