@@ -70,7 +70,7 @@ int main(){
     
     printf("i+j= %lf\n", lua_tonumber(L, 1));
     lua_close(L);
-    return 1;
+    return 0;
 }
 ```
 一開始先開啟新的狀態機叫L，第二行載入Lua的函式庫。
@@ -121,7 +121,7 @@ static int l_hello(lua_State *L){
     const char *name = lua_tostring(L, 1);
     lua_pop(L, 1);
     printf("Hello %s\n", name);
-    return 1;
+    return 0;
 }
 
 static int l_total(lua_State *L){
@@ -134,6 +134,7 @@ static int l_total(lua_State *L){
 ```
 第一個函式的引數為一字串，執行此函數會直接印出"Hello 引數"，沒有返回值。
 第二個函數的引數為兩個數字，此函數會返回兩個引數加總值。
+注意程式中return之值為在Lua返回狀態層數，`return 1`代表返回最上層狀態，`return 2`會將最上兩層一起返回。
 使用方法如下：
 ```lua
 ex = require "example"
