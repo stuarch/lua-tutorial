@@ -25,3 +25,6 @@
 * [5.C中的相關資料型態](5.Data_Types_in_C)
     * [Userdata](5.Data_Types_in_C#userdata)
     * [Metatable](5.Data_Types_in_C#metatable)
+
+* [6.協同](6.Coroutine)
+    * [Thread](6.Coroutine#thread)
