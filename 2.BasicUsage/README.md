@@ -187,6 +187,16 @@ end
 第一行函式的部份也可以寫成`pyramid=function(num)`
 有趣的是，如果我們執行`print(pyramid)`，結果為`function: 0x10bdbd0`，此為function之記憶體位置。
 
+還有，Lua的函數也支援多值返回的，如下：
+```lua
+function m_return()
+    return 5,"Hello world"
+end
+
+num,str = m_return()
+print(num,str)
+```
+
 ### require
 將上面範例存成`star.lua`，可以利用require來使用檔案中的函數
 ```lua
