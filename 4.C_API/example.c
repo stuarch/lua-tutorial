@@ -9,7 +9,7 @@ static int l_hello(lua_State *L){
     const char *name = lua_tostring(L, 1);
     lua_pop(L, 1);
     printf("Hello %s\n", name);
-    return 1;
+    return 0;
 }
 
 static int l_total(lua_State *L){
