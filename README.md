@@ -22,6 +22,6 @@
     * [在C語言中操作Lua狀態機](4.C_API#在c語言中操作lua狀態機)
     * [用C語言撰寫Lua函式庫](4.C_API#用c語言撰寫lua函式庫)
 
-* [5.C中的相關資料型態]
-	* [Userdata](5.Data_Types_in_C#userdata)
-	* [Metatable](5.Data_Types_in_C#metatable)
+* [5.C中的相關資料型態](5.Data_Types_in_C)
+    * [Userdata](5.Data_Types_in_C#userdata)
+    * [Metatable](5.Data_Types_in_C#metatable)
