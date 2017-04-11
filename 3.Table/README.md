@@ -32,7 +32,7 @@ print(t.ping)
 
 走訪table的方式如下：
 ```lua
-t = {"hello", 3=4, foo="bar"}
+t = {"hello", [3]=4, foo="bar"}
 for k,v in ipairs(t) do
     print(k,v)
 end
