@@ -69,7 +69,7 @@ Lua為弱型別語言，Lua提供的資料型態非常少。以下為Lua提供�
 | function | 函式，可以為Lua或是C所撰寫，可以直接執行也可作為指定類型變數的操作方法。詳情參照[函數](/2.BasicUsage#函數)       |
 | userdata | 從C語言傳遞來的數據，內容通常為組態。詳情參照[Userdata](/5.Data_Types_in_C#userdata)                       |
 | table    | 類似陣列，不過擁有key和value。是Lua中唯一比較複雜的資料型態，常用來取代class。詳情參照[Table](/3.Table)         |
-| thread   | 執行緒，詳情參照 [6.協同](/6.Coroutine)                                                               |
+| thread   | 執行緒，詳情參照 [協同](/6.Coroutine)                                                               |
 
 不指定變數種類時預設為global，而強調`local`時變數為區域變數。定義變數值方法如下：
 ```lua
