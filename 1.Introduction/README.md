@@ -60,16 +60,16 @@ And this is still the comment.
 ## 資料型態
 Lua為弱型別語言，Lua提供的資料型態非常少。以下為Lua提供的資料型態：
 
-| 資料型態 | 敘述                                                                                                 |
+| 資料型態 | 敘述                                                                                                   |
 |----------|------------------------------------------------------------------------------------------------------|
-| nil      | 空值，相當於C語言中的NULL                                                                            |
-| number   | (可運算)數字，預設為double，可以在執行環境中更變。                                                   |
-| string   | 字串，和其他腳本語言一樣有[字串處理函數](https://www.tutorialspoint.com/lua/lua_strings.htm)可以使用 |
-| boolean  | 布林代數，為`true`或`false`。                                                                        |
-| function | 函式，可以為Lua或是C所撰寫，可以直接執行也可作為指定類型變數的操作方法。                             |
-| userdata | 從C語言傳遞來的數據，通常為組態。                                                                    |
-| table    | 類似陣列，不過擁有key和value。是Lua中唯一比較複雜的資料型態，常用來取代class。                       |
-| thread   | 執行緒，詳情參照 coroutune(協作)。                                                                   |
+| nil      | 空值，相當於C語言中的NULL                                                                               |
+| number   | (可運算)數字，預設為double，可以在執行環境中更變。                                                         |
+| string   | 字串，和其他腳本語言一樣有[字串處理函數](https://www.tutorialspoint.com/lua/lua_strings.htm)可以使用。      |
+| boolean  | 布林代數，為`true`或`false`。                                                                          |
+| function | 函式，可以為Lua或是C所撰寫，可以直接執行也可作為指定類型變數的操作方法。詳情參照[函數](/2.BasicUsage#函數)       |
+| userdata | 從C語言傳遞來的數據，內容通常為組態。詳情參照[Userdata](/5.Data_Types_in_C#userdata)                       |
+| table    | 類似陣列，不過擁有key和value。是Lua中唯一比較複雜的資料型態，常用來取代class。詳情參照[Table](/3.Table)         |
+| thread   | 執行緒，詳情參照 [6.協同](/6.Coroutine)                                                               |
 
 不指定變數種類時預設為global，而強調`local`時變數為區域變數。定義變數值方法如下：
 ```lua
