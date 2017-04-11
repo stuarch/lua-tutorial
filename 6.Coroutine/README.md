@@ -25,7 +25,7 @@ co = coroutine.create(function(a,b)
     for i = 1,b do
         sum = sum * a
     end
-    c = coroutine.yeild(sum)
+    c = coroutine.yield(sum)
     return sum+c
 )
 
@@ -33,8 +33,19 @@ coroutine.resume(co, 2, 5) -- 32
 coroutine.resume(co, 16) -- 48
 ```
 
-執行到`coroutine.yeild()`時會進行一次中斷，並且返回其參數。
-重新進入一次進入Thread時會把`coroutine.resume()`的參數傳入本來yeild的位置，並接下去執行。
+執行到`coroutine.yield()`時會進行一次中斷，並且返回其參數。
+重新進入一次進入Thread時會把`coroutine.resume()`的參數傳入本來yield的位置，並接下去執行。
+
+`coroutine.running()`則會返回當前執行Thread，如果當前在主程式線程則會返回nil。
+```lua
+co = coroutine.create(function()
+    coroutine.yield(coroutine.running())
+end
+)
+
+print(coroutine.resume(co)) -- thread
+```
+
 我們可以用`status`查詢Thread的狀態：
 ```lua
 co = coroutine.create(function()
@@ -46,16 +57,17 @@ co = coroutine.create(function()
     return "sum="..sum
 )
 
-sum=coroutine.resume(co)
+coroutine.resume(co)
+print(coroutine.status(co)) -- run
 while true do
-    status = coroutine.status(co)
-    if status == "suspend" then
-        break
-    end
-    coroutine.resume(co)
+    if coroutine.status(co) == "suspend" then
+    break
+end
+coroutine.resume(co)
+print(coroutine.resume(co)) -- dead
 ```
-Thread的狀態有三種，分別是run、suspend、stop。
+Thread的狀態有三種，分別是run、suspend、dead。
 run為正在執行中，還未收到返回值或是中斷狀態之前。
 當Thread收到中斷訊息時，會進入suspend狀態。
 在suspend狀態下可以再執行resume讓Thread繼續執行。
-在Thread已經執行return時，會進入stop狀態。此時程式已經無法再resume了。
+在Thread已經執行return或是end時，會進入dead狀態。此時程式已經無法再resume了。
