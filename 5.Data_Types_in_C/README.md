@@ -32,9 +32,13 @@ static int l_new(lua_State *L){
 static int l_get(lua_State *L){
     ctx_t *ctx = (ctx_t *)lua_touserdata(L, 1);
     lua_pushstring(L, ctx->a);
-    lua_pushinteger(L, ctx-b);
+    lua_pushinteger(L, ctx->b);
     return 2;
 }
+```
+```lua
+a = example.new()
+print(example.get(a))
 ```
 當我們印出此函式返回之結果，能得到userdata中兩個變數之值。
 
